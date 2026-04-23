@@ -443,7 +443,7 @@ section {
     font-size: 16px;
     padding: 0 10px;
   }
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
 
   .project-container {
     flex-direction: column;
@@ -453,26 +453,28 @@ section {
   .project-card {
     width: 100%;
     max-width: 350px;
-    height: auto; /* IMPORTANT */
+    height: auto;
   }
 
   .project-card img {
-    position: relative;   /* ❗ absolute hata diya */
+    position: relative;
     width: 100%;
-    height: auto;         /* ❗ image full show hogi */
-    object-fit: contain;  /* ❗ image cut nahi hogi */
+    height: auto;
+    object-fit: cover;
   }
 
   .overlay {
-    position: relative;   /* ❗ overlap remove */
-    transform: none;
-    height: auto;
-    background: #020617;
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+
+  /* 👇 CLICK par open hoga */
+  .project-card.active .overlay {
+    transform: translateY(0);
     pointer-events: auto;
   }
 
 }
-
   .contact-heading {
     margin-top: 0;
     margin-bottom: 20px;
